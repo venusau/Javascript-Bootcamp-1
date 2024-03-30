@@ -1,0 +1,33 @@
+.container {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background: black;
+}
+
+body {
+  position: absolute;
+}
+
+.container2 {
+  position: relative;
+  top: -50px;
+  background-color: red;
+
+  /* BY default z index is 0 */
+  z-index: 0;
+}
+
+.container1 {
+  position: relative;
+  top: 20px;
+  z-index: 10000000000000000000;
+}
+
+.container3 {
+  position: relative;
+  top: -100px;
+  left: 30px;
+  background-color: violet;
+  z-index: 10000000000000000000;
+}

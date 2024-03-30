@@ -1,0 +1,39 @@
+.container {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.container1 {
+  /* z index is automatically set by position */
+  /* SEE PARENT/BODY and then POSITION YOURSELF */
+  position: absolute;
+  background-color: red;
+
+  right: 20px;
+  top: 10px;
+  /* bottom: 10px; */
+}
+
+.container2 {
+  /* SEE MY OWN STATIC POISTION and then ADJUST ACCORDING TO THAT */
+  position: relative;
+
+  background-color: violet;
+
+  /* top: 10px; */
+  /* right: 20px; */
+
+  /* bottom: 10px ; */
+}
+
+.container3 {
+  background-color: green;
+}
+
+.parent {
+  position: relative;
+  height: 300px;
+  background-color: aqua;
+}

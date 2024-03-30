@@ -136,3 +136,59 @@ Syntax
 */
 
 /* ******* -----------------PSEUDO ELEMENT Selectors  ******** --------------- * */
+
+/* ********* -------------------- CSS SPECIFICITY ************ ------------ */
+
+/* RULE 1: Fight Among the Place of CSS. */
+
+/* Position 1. In line Css  */
+/* Position 2. Style tag will WIn */
+/* Position 3. External Css Will win */
+
+/* .para {
+  color: green;
+}
+
+.para {
+  color: brown;
+} */
+
+/* RULE 2:  */
+/* 2.1 ->  If the Selector are DITTO same then the rule who is comming afterwards will WIN  */
+
+/* If we want to select  <p id="paraId" class="paraClass">Hey there guys whats up!!</p> 
+  Then we can use Simple selection-> ID, Class, Combinator Selector  
+ 
+ */
+
+/* 
+   2.2 ->   ID Selector will win > TAG >  class Select , Tag Selector, 
+ */
+
+/* 2.3  ->  body #paraId VS #paraId -> body #paraId (bec I am selecting ID with More INFO) */
+
+/* ID Unique Identification + more ifo  */
+body #paraId {
+  color: gold;
+}
+
+/* Unique Identification  */
+#paraId {
+  color: red !important;
+}
+
+/*  */
+.paraClass {
+  color: green;
+}
+
+body .paraClass {
+  color: blue;
+}
+
+/* RULE 3 -> !important RULE (NEVER USE) (ONLY USE WHEN YOU HAVE A GUN ON YOU)  */
+/* it will ovveride all the rules on TOP and will implement its own RULE. */
+
+.paraClass {
+  color: green !important;
+}

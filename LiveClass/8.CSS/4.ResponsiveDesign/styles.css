@@ -69,16 +69,41 @@ nav ul li {
   gap: 10px;
 }
 
-@media (max-width: 400px) {
+/* 0 px to 400 px  */
+@media (min-width: 400px) and (max-width: 800px) {
+  /* WHATEVER RULE YOU HAVE WRITTEN ON TOP CAN ALSO COME HERE WITHOUT DISCRIMINATION */
+
   nav {
-    background-color: orange;s
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid black;
+  }
+}
+
+/* 0 px to 640 p x */
+/* @media (max-width: 640px) {
+  nav {
+    background-color: green;
     display: flex;
     flex-direction: column;
   }
-}
+} */
 
 /* @media only screen and (max-width: 600px) {
   body {
     background-color: lightblue;
   }
+}
+
+
+@media only television and (max-width: 600px) {
+  body {
+    background-color: red;
+  }
 } */
+
+/* POSITION 
+Z index 
+Bootstrap ->  */
