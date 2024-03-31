@@ -45,6 +45,30 @@
 
     // It is taking ITS OWN STATIC POSITION AS A RELATIVE POISTION from there it will try to position.
 
+*/
+
+/*
+    3. Fixed
+    
+    -> the elemetn is positioned relative to the VIEWPORT. or Brwser WIndow.
+    -> On-SCORLL: the element will be fixed on the screen.
+
+    -> USed for something like NAvigation, HEADING.
+
+
+
+
+*/
+
+/*
+    4. Sticky
+
+    -> combination of relative POSITION and FIXED POSITION 
+    -> Sticky is A relative POSITION  until you scroll the page.
+
+    -> IT will behave as sticy till the Paarents Container. (PARENT || BODY)
+
+    -> util Cieling of the Viweport HITS.
 
 
 */

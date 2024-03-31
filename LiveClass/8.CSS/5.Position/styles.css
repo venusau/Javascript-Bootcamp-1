@@ -14,26 +14,39 @@
   right: 20px;
   top: 10px;
   /* bottom: 10px; */
+  /* z-index: 100; */
 }
 
 .container2 {
   /* SEE MY OWN STATIC POISTION and then ADJUST ACCORDING TO THAT */
-  position: relative;
+  /* position: relative; */
+
+  position: sticky;
 
   background-color: violet;
 
-  /* top: 10px; */
+  top: 10px;
+
   /* right: 20px; */
 
   /* bottom: 10px ; */
+
+  /* z-index: -1000; */
 }
 
 .container3 {
   background-color: green;
 }
 
+.container4 {
+  position: fixed;
+  background-color: orange;
+  top: 10px;
+  right: 10px;
+}
+
 .parent {
-  position: relative;
+  /* position: relative; */
   height: 300px;
   background-color: aqua;
 }
