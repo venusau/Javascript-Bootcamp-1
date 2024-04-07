@@ -130,12 +130,13 @@ let containerElement = document.getElementById("container");
 // ------------------------- CREATE AN ELEMENT ------------------
 
 /*
+
   1. Create the Element 
   2. Edit the element
 
   3. Attach the element to the DOM
 
-*/
+
 
 // 1. Crete an element.
 
@@ -156,11 +157,136 @@ const divContianer = document.getElementById("container")
 // divContianer.before(divContainerNewElement);
 // divContianer.after(divContainerNewElement);
 
+*/
+
+
+// QUESTION: You have to add People inside the list.
+
+// WAY1 -> append 
+/*
+const listElemet = document.getElementById("list");
+
+
+const utkarshElement  = document.createElement("li"); // <li> </li>
+utkarshElement.innerText = "Utkarsh" // <li>Utkarsh</li>
+
+const animeshElement  = document.createElement("li"); // <li> </li>
+animeshElement.innerText = "animesh" // <li>Animesh</li>
+
+
+listElemet.append(animeshElement);
+listElemet.append(utkarshElement);
+*/
 
 
 
-// 2. Performance.
+// WAY2 -> innerHtml
+// const listElemet = document.getElementById("list");
+// console.dir(listElemet);
+// listElemet.innerHTML +=  `<li>Animesh1</li>\n` + `<li>Utkarsh1</li>\n`;
 
 
 
+// --------------------- WAYS OF INSERTION ----------------
+/*
+const listElemet = document.getElementById("list");
+
+// 1. APPEND 
+const zebraStudentElement = document.createElement("li")
+zebraStudentElement.innerText = "Zebra"
+
+listElemet.append(zebraStudentElement);
+
+
+// 2. Prepend
+
+const zeroStudentElement = document.createElement("li")
+zeroStudentElement.innerText = "Zero 0"
+
+listElemet.prepend(zeroStudentElement);
+
+
+// 3. After
+
+const footerElement = document.createElement("footer")
+footerElement.innerText = "END OF LIST";
+
+listElemet.after(footerElement)
+
+// 4. Before
+
+const headerElement = document.createElement("header")
+headerElement.innerText = "Start of the List of Students";
+
+listElemet.before(headerElement)
+
+*/
+
+
+// TODO:  READ ABOUT : insertAdjacentHTML 
+// https://javascript.info/modifying-document
+
+
+
+
+
+// --------------------------- Performance. -------------------
+
+// -----  PROBLEM STATEMNT: 
+
+
+const listElemet = document.getElementById("list");
+
+const studentList = ['Leanne Graham', 'Ervin Howell', 'Clementine Bauch', 
+'Patricia Lebsack', 'Chelsey Dietrich', 
+'Mrs. Dennis Schulist', 'Kurtis Weissnat', 
+'Nicholas Runolfsdottir V', 'Glenna Reichert', 
+'Clementina DuBuque']
+
+/*
+
+for(let i=0; i<studentList.length;i++){
+  const studentName = studentList[i];
+
+  const studentElement = document.createElement("li")
+  studentElement.innerText = studentName;
+
+  listElemet.append(studentElement)
+
+}
+
+// FLAW is that we are chaning the DOM TREE 10 TIMES 
+// There will be Reflow and Repaint For 10 Times. (VV EXPENSIVE).
+
+*/
+
+
+// ----  SOLUTION 
 // FRAGMENTS 
+
+
+const fakeFragmentNode = new DocumentFragment();
+
+for(let i=0; i<studentList.length;i++){
+  const studentName = studentList[i];
+
+  const studentElement = document.createElement("li")
+  studentElement.innerText = studentName;
+
+  fakeFragmentNode.append(studentElement)
+
+}
+
+// listElemet.append(fakeFragmentNode);
+
+// const obj = {
+
+// }
+
+// We are doing Exxpensive Stuff - 1 TIme 
+
+
+
+
+
+
