@@ -20,13 +20,43 @@
     included Javascript.
 */
 
-
 const buttonElement = document.getElementById("button");
 
+// --------------------- MOUSE EVENTS ------------------
+
+// 1. Click
 
 buttonElement.addEventListener("click", () => {
-    console.log("clicked ME!!!")
-})
+  //   console.log("clicked ME!!!");
+  alert("button clicked");
+});
+
+// A single Element can Have Multiple Event Listners...
+
+const containerElement = document.getElementById("container");
+
+// 2. MouseOver->
+containerElement.addEventListener("mouseover", () => {
+  containerElement.style.background = "purple";
+});
+
+// 3. Mouse Out ->
+
+containerElement.addEventListener("mouseout", () => {
+  containerElement.style.background = "white";
+});
+
+containerElement.addEventListener("click", () => {
+  containerElement.style.background = "yellow";
+  containerElement.style.borderRadius = "20px";
+});
+
+// 4. Double Click
+
+containerElement.addEventListener("dblclick", () => {
+  containerElement.style.background = "Black";
+  containerElement.style.borderRadius = "5px";
+});
 
 // buttonElement.addEventListener("mouseover", () => {
 //     console.log("Mouse over");
@@ -34,4 +64,28 @@ buttonElement.addEventListener("click", () => {
 //     headingElement.innerText ="wow Hovering mouse enter"
 // })
 
+// ----------------------- KEYBOARD EVENTS ---------------------
 
+const inputBoxElement = document.getElementById("inputbox");
+
+// 1. KEY DOWN
+inputBoxElement.addEventListener("keydown", (event) => {
+  const key = event.key;
+
+  if (key === "a") {
+    containerElement.style.background = "red";
+  } else if (key === "b") {
+    containerElement.style.background = "green";
+  } else {
+    containerElement.style.background = "white";
+  }
+});
+
+// 2. KEY UP
+
+// 3. KEY PRESSED
+
+// ------------------ WINDOW EVENT -------------------
+window.addEventListener("resize", (event) => {
+  console.log("resize");
+});
