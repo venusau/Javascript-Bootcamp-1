@@ -50,25 +50,21 @@ const childElement = document.getElementById("child");
 
 // ---------------- BUBBLING PHASE -----------------------
 
-childElement.addEventListener(
-  "click",
-  (evenObj) => {
-    console.log("child Clicked");
-  },
-  false
-);
+// childElement.addEventListener("click", (evenObj) => {
+//   console.log("child Clicked");
+// });
 
-parentElement.addEventListener("click", (evenObj) => {
-  console.log("parentElement Clicked");
-});
+// parentElement.addEventListener("click", (evenObj) => {
+//   console.log("parentElement Clicked");
+// });
 
-grandParentElement.addEventListener(
-  "click",
-  (evenObj) => {
-    console.log("grandParentElement Clicked");
-  },
-  false
-);
+// grandParentElement.addEventListener(
+//   "click",
+//   (evenObj) => {
+//     console.log("grandParentElement Clicked");
+//   },
+//   false
+// );
 
 // ---------------- CAPTURING PHASE ----------------
 
@@ -79,3 +75,299 @@ grandParentElement.addEventListener(
 //   },
 //   true
 // );
+
+// ---------- EXAMPLES ----------------
+
+// QUESTION 1:  click on child
+
+/*
+childElement.addEventListener("click", (evenObj) => {
+  console.log("child Clicked");
+});
+
+grandParentElement.addEventListener(
+  "click",
+  (evenObj) => {
+    console.log("grandParentElement Clicked");
+  },
+  false
+);
+
+Answer: 1. child Clicked
+2. grandParentElement Clicked
+
+*/
+
+// QUESTION 2:  click on Parent
+
+/*
+childElement.addEventListener("click", (evenObj) => {
+  console.log("child Clicked");
+});
+
+grandParentElement.addEventListener(
+  "click",
+  (evenObj) => {
+    console.log("grandParentElement Clicked");
+  },
+  false
+);
+
+// Answer: grandParentElement Clicked
+
+*/
+
+// QUESTION 3:  click on Parent
+
+/*
+childElement.addEventListener("click", (evenObj) => {
+  console.log("child Clicked");
+});
+
+parentElement.addEventListener("click", () => {
+  console.log("parent clicked");
+});
+
+grandParentElement.addEventListener(
+  "click",
+  (evenObj) => {
+    console.log("grandParentElement Clicked");
+  },
+  false
+);
+
+// Answer: 1. parent clicked
+// 2. grandParentElement Clicked
+
+*/
+
+// QUESTION 4:  click on GrandParent
+
+/*
+childElement.addEventListener("click", (evenObj) => {
+  console.log("child Clicked");
+});
+
+parentElement.addEventListener("click", () => {
+  console.log("parent clicked");
+});
+
+grandParentElement.addEventListener(
+  "click",
+  (evenObj) => {
+    console.log("grandParentElement Clicked");
+  },
+  false
+);
+
+// Answer:
+// 1. grandParentElement Clicked
+
+*/
+
+// Question 5: click on Child
+
+/*
+childElement.addEventListener(
+  "click",
+  () => {
+    console.log("child Clicked");
+  },
+  true
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent Clicked");
+  },
+  true
+);
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent Clicked");
+  },
+  true
+);
+
+// Answer
+// 1. Grand parent clicked
+// 2. Parent clicked
+// 3. Child clicked
+*/
+
+// Question 6: click on Parent
+
+/*
+childElement.addEventListener(
+  "click",
+  () => {
+    console.log("child Clicked");
+  },
+  true
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent Clicked");
+  },
+  true
+);
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent Clicked");
+  },
+  true
+);
+
+// Answer
+// 1. Grand parent clicked
+// 2. Parent clicked
+
+*/
+
+// Question 7: click on Child
+
+/*
+childElement.addEventListener(
+  "click",
+  () => {
+    console.log("child Clicked");
+  },
+  false
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent Clicked");
+  },
+  true
+);
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent Clicked");
+  },
+  false
+);
+
+// Answer
+// 1. Parent Clicked
+// 2. Child Clicked
+// 3. GrandParent clicked
+*/
+
+// Question 8: click on Child
+
+/*
+childElement.addEventListener(
+  "dblclick",
+  () => {
+    console.log("child Clicked");
+  },
+  false
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent Clicked");
+  },
+  true
+);
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent Clicked");
+  },
+  false
+);
+
+// Answer
+// 1. Parent Clicked
+// 2. GrandParent clicked
+
+*/
+
+// Question 9: click on Child
+
+/*
+childElement.addEventListener(
+  "mouseover",
+  () => {
+    console.log("child Clicked");
+  },
+  false
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent Clicked");
+  },
+  true
+);
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent Clicked");
+  },
+  false
+);
+
+// Answer
+
+// MOUSE OVER EVENT
+
+// 0. child Clicked
+
+// CLICK eVent
+
+// 1. Parent Clicked
+// 2. GrandParent clicked
+
+*/
+
+// Question 10: click on Child
+
+/*
+let x = false;
+
+// FALSE -> RIGHT SIDE
+// TRUE -> LEFT SIDE
+
+grandParentElement.addEventListener(
+  "click",
+  () => {
+    console.log("grandparent clicked");
+  },
+  x
+);
+
+parentElement.addEventListener(
+  "click",
+  () => {
+    console.log("parent clicked");
+    x = true;
+
+    // console.log("new val of x", x);
+  },
+  x
+);
+
+console.log(x, "x ki value");
+
+// Answer:
+// parent clicked
+// grandparent clicked
+
+*/
