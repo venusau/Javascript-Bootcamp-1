@@ -80,8 +80,10 @@ const childElement = document.getElementById("child");
 
 // QUESTION 1:  click on child
 
-/*
 childElement.addEventListener("click", (evenObj) => {
+  console.log(evenObj);
+  console.log(evenObj.BUBBLING_PHASE);
+  console.log(evenObj.CAPTURING_PHASE);
   console.log("child Clicked");
 });
 
@@ -93,10 +95,8 @@ grandParentElement.addEventListener(
   false
 );
 
-Answer: 1. child Clicked
-2. grandParentElement Clicked
-
-*/
+// Answer: 1. child Clicked
+// 2. grandParentElement Clicked
 
 // QUESTION 2:  click on Parent
 

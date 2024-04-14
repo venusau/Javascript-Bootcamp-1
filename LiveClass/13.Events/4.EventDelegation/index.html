@@ -15,7 +15,10 @@
     </div>
 
 
-    <div class="container" id="container">
+    <!-- NOTE: event is a KEYWORD -->
+    <!-- onclick="eventDelegationFunction(event)" -->
+    <!-- onclick, ondblclick onmouseover all these work By default in BUBBLING pHASE. -->
+    <div class="container" onclick="eventDelegationFunction(event)" id="container">
         <div id="red" class="pallet">Red</div>
         <div id="green" class="pallet">Green</div>
         <div id="purple" class="pallet">Purple</div>

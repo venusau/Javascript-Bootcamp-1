@@ -34,9 +34,34 @@ const containerElement = document.getElementById("container");
 
 // ------- BETTER WAY - >EVENT DELEGATION -------
 
-containerElement.addEventListener("click", (eventObj) => {
-  const element = eventObj.target;
-  const color = element.id;
+// containerElement.addEventListener("click", (eventObj) => {
+//   const element = eventObj.target;
+//   const color = element.id;
 
-  colorPalletElement.style.background = color;
-});
+//   colorPalletElement.style.background = color;
+// });
+
+// LET HAVE INLINE LISTNERS -> go back to index.html
+
+// function eventDelegationFunction(event) {
+//   console.dir(event.target);
+
+//   const element = event.target;
+//   const color = element.id;
+//   colorPalletElement.style.background = color;
+// }
+
+// function redColor() {
+//   colorPalletElement.style.background = "red";
+// }
+
+// --------------  NOTE:  ANAMOLY :  ----------
+
+// It seems that the below will not work but the event propogation is soo faster then the callback function execution.
+
+// containerElement.addEventListener("click", (eventObj) => {
+//   const element = eventObj.target;
+//   const color = element.id;
+
+//   colorPalletElement.style.background = color;
+// }, true);
