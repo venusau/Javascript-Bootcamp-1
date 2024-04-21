@@ -258,6 +258,7 @@ setTimeout(abc, 5000)
 
 // Example 3: bind
 
+/*
 const obj = {
   name: "utkarsh",
   func: function (a, b) {
@@ -283,8 +284,11 @@ setTimeout(obj.func, 5000);
 
 // googleService(func)
 
-// 4. new
+*/
 
+// -----  4. new
+
+/*
 function Car(name, speed, mdel) {
   // context -> this -> new ({})
   this.name = name;
@@ -300,6 +304,7 @@ const ferrari = new Car("ferrari", 280, "v8");
 // the extra info is new ({});
 
 console.log(ferrari);
+*/
 
 // ---------------- RULES PRECEDENCE ----------------------
 
@@ -308,4 +313,92 @@ console.log(ferrari);
 
   new >>>>> explicit Binding > implicit > defult.
 
+*/
+
+// EXAMPLE: 4
+
+/*
+let obj = {
+  name: "akash",
+  func: function () {
+    // context = {}
+    this.standard = 12;
+    console.log(`hello ... ${this.name}`);
+  },
+};
+
+// new kwyword vs Implicit binding
+// new keyword wins...
+
+const object = new obj.func();
+console.log(object);
+*/
+
+// hello undefined
+// { standard: 12 }
+
+// EXAMPLE 5:
+
+/*
+let obj1 = {
+  name: "akash",
+  func: function () {
+    // context = {}
+    this.standard = 12;
+    console.log(`hello ... ${this.name}`);
+  },
+};
+
+// Implicit binding
+
+const object1 = obj.func();
+console.log(object1);
+console.log(obj1);
+
+*/
+
+/*
+ANswer: 
+
+  hello akash 
+  undefined
+  
+  { name: "akash",
+    func: function () {
+    // context = {}
+    this.standard = 12;
+    console.log(`hello ... ${this.name}`);
+    },
+    standard: 12
+  }
+  
+
+*/
+
+// EXAMPLE 6:
+
+/*
+function Person(name) {
+  this.name = name;
+  this.sayHello = function () {
+    console.log(`Hello, I'm ${this.name}`);
+  };
+}
+
+// new keywod
+
+const person1 = new Person("asd");
+const person2 = {
+  name: "xaxa",
+};
+
+// Inplicit Binding vs Explicit Binding
+
+person1.sayHello.call(person2);
+
+*/
+
+/*
+  ANSWER
+  Hello xaxa
 */
