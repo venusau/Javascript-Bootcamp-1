@@ -30,6 +30,7 @@
 // --------------- How to Create Object in JAvascript ---------------------
 
 // way 1:
+/*
 const utkarshPerson = {
   name: "utkarsh",
   age: 27,
@@ -46,6 +47,7 @@ const yatinPerson = {
     console.log("hello I can walk " + this.name);
   },
 };
+*/
 
 // way 2:  class
 /*
@@ -171,12 +173,16 @@ animikaPersonC.canWalk();
   CLASSES WON !!!!
 */
 
-// ------------------------------ INHERITANCE ---------------------------
+// ------------------------------ INHERITANCE / MethodOverriding ---------------------------
 // All the Properties and Methods of Parent will be part of Child (Derived Class).
 // Any Properties of child can NEVER be Part of Parent.
 
+// EXAMPLE 1 :
+/*
 class Parent {
   property = 12;
+
+  
 
   constructor() {}
 }
@@ -197,6 +203,228 @@ class Child extends Parent {
 
 const child1 = new Child("ch", 100);
 
-console.log(child1);
+console.log(child1.property); // 12
 
-// See Inheritance in Function Constructor ?
+*/
+
+// EXAMPLE 2 :
+
+/*
+// parent CLass
+class Student {
+  name;
+  standard;
+
+  constructor(name, standard) {
+    this.name = name;
+    this.standard = standard;
+  }
+
+  markAttanndance() {
+    console.log(`hey there ${this.name}  is PRESENT :: NORMAL ATTANDANCE`);
+  }
+
+  grades() {
+    console.log(`grades are nice`);
+  }
+}
+//  child Class
+
+class SportsCaptain extends Student {
+  favTool; // bat, ball, tennis racket, badmintionracket
+
+  constructor(name, standard, tool) {
+    super(name, standard);
+    this.favTool = tool;
+  }
+}
+
+const sportsCaptain = new SportsCaptain("ViratKohli", 12, "bat");
+
+
+
+console.log(sportsCaptain);
+
+const utkarshStudent = new Student("utkarsh", 9);
+const arunStudent = new Student("arun", 10);
+
+utkarshStudent.markAttanndance();
+arunStudent.markAttanndance();
+console.log(utkarshStudent);
+console.log(arunStudent);
+
+*/
+
+// EXAMPLE 3:
+
+/*
+class Student {
+  name;
+  standard;
+  constructor(name, standard) {
+    this.name = name;
+    this.standard = standard;
+    this.country = "INDIAN";
+  }
+
+  markAttanndance() {
+    console.log(
+      `hey there ${this.name}  is PRESENT :: NORMAL CLASS ATTANDANCE`
+    );
+  }
+
+  grades() {
+    console.log(`grades of ${this.name} are nice`);
+  }
+}
+//  child Class
+
+class SportsCaptain extends Student {
+  favTool;
+  constructor(name, standard, tool) {
+    super(name, standard);
+    this.favTool = tool;
+  }
+
+  markAttanndance() {
+    console.log(
+      `hey there ${this.name}  is PRESENT :: GROUND PRESENCE ATTANDANCE`
+    );
+  }
+
+  routine() {
+    console.log("ROUTIENE of regrous things -> train -> excesice ");
+  }
+}
+
+const virat = new SportsCaptain("ViratKohli", 12, "bat");
+console.log(virat);
+
+virat.markAttanndance();
+virat.routine();
+virat.grades();
+
+console.log(" =--------x x-x-x-x-x-x-x--xx--x-x------- ");
+
+const utkarsh = new Student("utkarsh", 10);
+console.log(utkarsh);
+
+utkarsh.markAttanndance(); //  NORMAL CLASS ATTANDANCE
+utkarsh.grades(); // grades are nice
+
+*/
+
+// ----------------- Inheritance in 2015 Before ES5 ------------------------
+// See advance Part of OOPS.
+
+// ---------------------- PRIVATE PROPERTIES ----------------------
+
+/*
+class Star {
+  name;
+  weight;
+  years;
+
+  constructor(name, weight, years) {
+    this.name = name;
+    this.weight = weight;
+    this.years = years;
+  }
+}
+
+const sun = new Star("sun", 100000000, 460);
+
+console.log(sun);
+
+// I can change the properties of the sun
+// sun.weight = -100; // this is bad
+
+// how can i protect it?
+
+// WAY 1. Propery Descriptors:
+
+Object.defineProperty(sun, "weight", {
+  writable: false,
+});
+
+sun.weight = 999999999999; // this is bad
+console.log(sun);
+*/
+
+/*If some scientific discovery happens and the sun Weight changes acc to calculation the through way 1 (property)
+ descriptor we cant change the weight.
+*/
+
+// WAY 2 : using private Property -> BEST way do above things.
+
+/*
+class Star {
+  name;
+  #weight;
+  #years;
+
+  constructor(name, weight, years) {
+    this.name = name;
+    this.#weight = weight;
+    this.#years = years;
+  }
+}
+
+const andromedaSun = new Star("andromeda", 888888888, 100);
+
+andromedaSun.name = "NORmal sun";
+// andromedaSun.#weight = 9990000;
+// andromedaSun.#yearssssssssss = 1;
+console.log(andromedaSun);
+
+*/
+
+// ----------------- ------ GETTERS AND SETTERS -------------------
+
+/*
+class Star {
+  name;
+  #weight;
+  #years;
+
+  constructor(name, weight, years) {
+    this.name = name;
+    this.#weight = weight;
+    this.#years = years;
+  }
+
+  set setWeight(value) {
+    if (value < 0) {
+      return;
+    }
+    
+    // if(valid) {
+    //   // if authorized people are changeing this or not 
+    //   // Some calculation and statistics 
+
+    //   return;
+    // }
+    
+
+    this.#weight = value;
+  }
+
+  get getWeight() {
+    return this.#weight;
+  }
+
+  get getYear() {
+    return this.#years;
+  }
+}
+
+const sun = new Star("sun", 100000, 100);
+
+sun.setWeight = 999999999;
+// sun.setWeight(999999999);
+
+console.log(sun.name);
+console.log(sun.getWeight);
+console.log(sun.getYear);
+
+*/
