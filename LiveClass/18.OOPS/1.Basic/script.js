@@ -428,3 +428,40 @@ console.log(sun.getWeight);
 console.log(sun.getYear);
 
 */
+
+// --------------------------- Instance Vs Static Properties/Methods --------------------
+/*
+class Circle {
+  radius;
+
+  constructor(r) {
+    this.radius = r;
+  }
+
+  // NORMAL METHOD
+  draw() {
+    console.log("DRWAR CIRCLE of ", this.radius);
+    Circle.parse(); // LEGAL this will work.
+  }
+
+  // Static Method
+  static parse() {
+    console.log(`hello this is static parse`);
+  }
+}
+
+const c1 = new Circle(100);
+// console.log(c1);
+c1.draw();
+
+// c1 is INSTANCE OF Circle class.
+// draw, radius these are Instance Properties.
+
+Circle.parse();
+// Circle.draw(); // This will not work.
+
+*/
+
+// --------------------------- CHECK INSTANCE ----------------------------
+
+console.log(c1 instanceof Circle);
