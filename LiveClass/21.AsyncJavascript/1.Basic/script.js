@@ -217,8 +217,10 @@ for (let i = 0; i < 5; i++) {
 //  How to Improve Example 8 :
 
 for (var i = 0; i < 5; i++) {
-  ((i) =>
+  function inner(num) {
     setTimeout(() => {
-      console.log(i);
-    }, 0))(i);
+      console.log(num);
+    }, 0);
+  }
+  inner(i);
 }
