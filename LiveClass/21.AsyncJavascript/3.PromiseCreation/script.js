@@ -49,4 +49,4 @@ function myFetch(url) {
 
 myFetch("kanye").then((data) => {});
 
-// WAY 2 - >Async-await
+// WAY 2 - > Async-await

@@ -32,19 +32,22 @@ fetch(url) // level 0
 
 // 3.. async await is syntatical sugar-> behind the scenes it converts to promise only.
 
+function display(quote) {
+  const element = document.getElementById("container");
+  element.textContent = quote;
+
+  const newContianer = document.createElement("div");
+  newContianer.innerHTML = "asdasdas";
+
+  document.body.appendChild(newContianer);
+}
+
 async function fetchQuotes(url) {
   try {
     const response = await fetch(url);
     const data = await response.json();
     const quote = data.quote;
-
-    const element = document.getElementById("container");
-    element.textContent = quote;
-
-    const newContianer = document.createElement("div");
-    newContianer.innerHTML = "asdasdas";
-
-    document.body.appendChild(newContianer);
+    return quote;
   } catch (error) {
     if (error.message == "") {
     }
@@ -53,4 +56,22 @@ async function fetchQuotes(url) {
   }
 }
 
-fetchQuotes(url);
+// const quote = fetchQuotes(url);
+// console.log(quote, "promise obj");
+
+// consumption of promise
+// 1. .then
+
+// fetchQuotes(url)
+// .then((quote) => {
+//   display(quote);
+// });
+
+// 2. async await
+
+async function mainFunction() {
+  const quotes = await fetchQuotes(url);
+  display(quotes);
+}
+
+mainFunction();
